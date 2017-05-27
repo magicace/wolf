@@ -1,0 +1,16 @@
+[2017-05-26 10:33:31.189] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3650
+[2017-05-26 10:33:31.190] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3650
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-05-26 10:33:31.191] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: auth-server-1, msg: {"namespace":"user","serverType":"auth","service":"authRemote","method":"auth","args":["98c09377a6d26e16caffa4b2f8a4f3e4"]}, error code: 5
+[2017-05-26 10:33:31.191] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mmqtt rpc client connector-server-2 checkKeepAlive timeout from remote server auth-server-1 for 20000 lastPing: 1495765991186 lastPong: -1
+[2017-05-26 10:46:25.329] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3650
+[2017-05-26 10:46:25.330] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3650
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-05-26 10:46:25.331] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: auth-server-1, msg: {"namespace":"user","serverType":"auth","service":"authRemote","method":"auth","args":["07ff812d832946253364bdb8eaad219d"]}, error code: 5
+[2017-05-26 10:46:25.347] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mmqtt rpc client connector-server-2 checkKeepAlive timeout from remote server auth-server-1 for 20000 lastPing: 1495766765330 lastPong: -1

@@ -1,0 +1,104 @@
+[2017-05-26 10:18:00.480] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 10:18:00.909] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 10:18:00.911] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 10:18:00.911] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 390 ms
+[2017-05-26 10:30:57.986] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 10:30:58.406] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 10:30:58.407] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 10:30:58.407] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 388 ms
+[2017-05-26 10:39:57.053] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 10:39:57.471] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 10:39:57.473] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 10:39:57.474] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 387 ms
+[2017-05-26 10:45:23.468] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 10:45:23.969] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 10:45:23.970] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 10:45:23.971] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 469 ms
+[2017-05-26 11:18:04.509] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:18:04.827] [WARN] pomelo - [33m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/components/proxy.js] [39menableRpcLog is deprecated in 0.8.0, please use app.rpcFilter(pomelo.rpcFilters.rpcLog())
+[2017-05-26 11:18:05.030] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:18:05.031] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:18:05.031] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 427 ms
+[2017-05-26 11:20:16.099] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:20:16.384] [WARN] pomelo - [33m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/components/proxy.js] [39menableRpcLog is deprecated in 0.8.0, please use app.rpcFilter(pomelo.rpcFilters.rpcLog())
+[2017-05-26 11:20:16.589] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:20:16.590] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:20:16.591] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 357 ms
+[2017-05-26 11:21:04.625] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:21:05.074] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:21:05.075] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:21:05.075] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 358 ms
+[2017-05-26 11:21:05.171] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-1","host":"127.0.0.1","port":3150,"clientHost":"12.12.0.151","clientPort":3010,"frontend":"true","serverType":"connector","pid":12178}}
+[2017-05-26 11:31:04.485] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:31:04.973] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:31:04.974] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:31:04.975] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 407 ms
+[2017-05-26 11:43:28.834] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:43:29.313] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:43:29.315] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:43:29.315] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 389 ms
+[2017-05-26 11:47:30.065] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:47:30.541] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:47:30.545] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-2","host":"127.0.0.1","port":3151,"clientHost":"12.12.0.151","clientPort":3011,"frontend":"true","serverType":"connector","pid":14268}}
+[2017-05-26 11:47:30.547] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"chat-server-1","host":"127.0.0.1","port":3450,"serverType":"chat","pid":14280}}
+[2017-05-26 11:47:30.549] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:47:30.549] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 386 ms
+[2017-05-26 11:49:25.024] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 11:49:25.534] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 11:49:25.536] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-1","host":"127.0.0.1","port":3150,"clientHost":"12.12.0.151","clientPort":3010,"frontend":"true","serverType":"connector","pid":14485}}
+[2017-05-26 11:49:25.538] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 11:49:25.538] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 439 ms
+[2017-05-26 12:13:32.518] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 12:13:32.951] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 12:13:32.952] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 12:13:32.953] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 363 ms
+[2017-05-26 12:13:33.033] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"chat-server-1","host":"127.0.0.1","port":3450,"serverType":"chat","pid":15339}}
+[2017-05-26 12:13:33.084] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-2","host":"127.0.0.1","port":3151,"clientHost":"12.12.0.151","clientPort":3011,"frontend":"true","serverType":"connector","pid":15331}}
+[2017-05-26 13:44:20.220] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 13:44:20.722] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 13:44:20.723] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 13:44:20.723] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 363 ms
+[2017-05-26 14:10:37.896] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 14:10:38.378] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 14:10:38.379] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 14:10:38.379] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 351 ms
+[2017-05-26 14:56:44.062] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 14:56:44.513] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 14:56:44.514] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 14:56:44.515] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 370 ms
+[2017-05-26 15:03:05.664] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:03:06.142] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:03:06.143] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:03:06.143] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 355 ms
+[2017-05-26 15:14:09.555] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:14:10.007] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:14:10.009] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:14:10.009] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 358 ms
+[2017-05-26 15:14:10.054] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-1","host":"127.0.0.1","port":3150,"clientHost":"12.12.0.151","clientPort":3010,"frontend":"true","serverType":"connector","pid":21816}}
+[2017-05-26 15:30:21.974] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:30:22.421] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:30:22.423] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-1","host":"127.0.0.1","port":3150,"clientHost":"12.12.0.151","clientPort":3010,"frontend":"true","serverType":"connector","pid":22601}}
+[2017-05-26 15:30:22.424] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:30:22.425] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 361 ms
+[2017-05-26 15:32:26.499] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:32:26.985] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:32:26.987] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:32:26.987] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 358 ms
+[2017-05-26 15:36:03.735] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:36:04.181] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:36:04.182] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"chat-server-1","host":"127.0.0.1","port":3450,"serverType":"chat","pid":23171}}
+[2017-05-26 15:36:04.185] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:36:04.185] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 366 ms
+[2017-05-26 15:36:04.233] [DEBUG] pomelo - [36m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/modules/monitorwatcher.js] [39m[auth-server-1] receive addServer signal: {"action":"addServer","server":{"main":"/home/ace/prog/werewolf/game-server/app.js","env":"development","id":"connector-server-2","host":"127.0.0.1","port":3151,"clientHost":"12.12.0.151","clientPort":3011,"frontend":"true","serverType":"connector","pid":23164}}
+[2017-05-26 15:38:41.826] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:38:42.309] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:38:42.310] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:38:42.311] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 391 ms
+[2017-05-26 15:40:01.999] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:40:02.506] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:40:02.507] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:40:02.507] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 357 ms
+[2017-05-26 15:40:59.492] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "auth-server-1"
+[2017-05-26 15:40:59.934] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" enter after start...
+[2017-05-26 15:40:59.935] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" finish start
+[2017-05-26 15:40:59.935] [INFO] pomelo - [32m[/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/application.js] [39m"auth-server-1" startup in 365 ms
