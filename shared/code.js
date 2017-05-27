@@ -13,9 +13,14 @@ module.exports = {
 	}, 
 
 	CHAT: {
-		FA_CHANNEL_CREATE: 	3001, 
+		FA_CHANNEL_CREATE: 		3001, 
 		FA_CHANNEL_NOT_EXIST: 	3002, 
 		FA_UNKNOWN_CONNECTOR: 	3003, 
 		FA_USER_NOT_ONLINE: 	3004 
-	}
+	},
+
+	// HALL: {
+	// 	FA_UNKNOWN_CONNECTOR:	4003,
+	// 	FA_USER_NOT_ONLINE: 	4004 
+	// }
 };

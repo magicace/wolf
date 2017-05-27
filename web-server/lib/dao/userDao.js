@@ -26,6 +26,8 @@ userDao.getUserByName = function (username, cb){
   });
 };
 
+
+
 /**
  * Create a new user
  * @param (String) username
@@ -34,19 +36,38 @@ userDao.getUserByName = function (username, cb){
  * @param {function} cb Call back function.
  */
 userDao.createUser = function (username, password, salt, cb){
-  var sql = 'insert into User (name,password,salt,loginCount,lastLoginTime) values(?,?,?,?,?)';
-  var loginTime = Date.now();
-  var args = [username, password, salt, 1, loginTime];
+  let sql = 'insert into User (name,password,salt,loginCount,lastLoginTime) values(?,?,?,?,?)';
+  let loginTime = Date.now();
+  let args = [username, password, salt, 1, loginTime];
+  //create a new player at same time.
+  let _createPlayer = function(user,cb) {
+    let sql = 'insert into Player (userId,name) values (?,?)';
+    let args = [user.id,user.name];
+    
+    mysql.insert(sql,args,function(err,res) {
+      if (err !== null) {
+        cb({code: err.number, msg: err.mesage}, null);
+      } else {
+        cb(null,user)
+      }
+    });
+  }
+
   mysql.insert(sql, args, function(err,res){
     if(err !== null){
       cb({code: err.number, msg: err.message}, null);
     } else {
       var userId = res.insertId;
       var user = {id: res.insertId, name: username, password: password, loginCount: 1, lastLoginTime:loginTime};
-      cb(null, user);
+      //Create a new player at same time.
+      _createPlayer(user,cb);
     }
   });
 };
+
+
+
+
 
 
 

@@ -1,3 +1,9 @@
+const Code = require('../../../../../shared/code');
+const userDao = require('../../../dao/userDao');
+const async = require('async');
+const channelUtil = require('../../../util/channelUtil');
+const utils = require('../../../util/utils');
+
 module.exports = function(app) {
   return new Handler(app);
 };
@@ -15,37 +21,116 @@ var Handler = function(app) {
  * @return {Void}
  */
 Handler.prototype.entry = function(msg, session, next) {
-  next(null, {code: 200, msg: 'game server is ok.'});
+	console.log('entry:',msg);
+	let token = msg.token;
+	let self = this;
+
+	if(!token) {
+		next(new Error('invalid entry request: empty token'), {code: Code.FAIL});
+		return;
+	}
+
+	let uid,players, player;
+	async.waterfall([
+		// auth token
+		function(cb) {
+			self.app.rpc.auth.authRemote.auth(session, token, cb);
+		},
+		function(code,user,cb) {
+			if (code !== Code.OK) {
+				next(null, {code: code});
+				return;
+			}
+
+			if (!user) {
+				next (null, {code: Code.ENTRY.FA_USER_NOT_EXIST});
+				return;
+			}
+			uid = user.id;
+			userDao.getPlayersByUid(user.id, cb);
+		},
+		function(res, cb) {
+			players = res;
+			self.app.get('sessionService').kick(uid, cb);
+		},
+		function(cb) {
+			session.bind(uid, cb);
+		},
+		function(cb) {
+			if (!players || players.length ===0) {
+				next(null, {code: Code.OK});
+				return;
+			}
+
+			player = players[0];
+			player.areaId = 1;
+
+			// session.set('serverId', self.app.get('areaIdMap')[player.areaId]);
+			session.set('playername', player.name);
+			session.set('playerId', player.id);
+			session.on('closed', onUserLeave.bind(null, self.app));
+			session.pushAll(cb);
+		},
+		function(cb) {
+			let channelName = channelUtil.getGlobalChannelName();
+			self.app.rpc.chat.chatRemote.add(session, player.userId, player.name, channelName, cb);		
+		},
+		function(code) {
+			console.log(code == Code.OK);
+			if (code !== Code.OK) {
+				next(null, {code: Code.FAIL});
+				return;
+			}
+
+			console.log('entry success!!!');
+			next(null, {code: Code.OK, player: players ? player : null});
+		}
+	]);
 };
 
-/**
- * Publish route for mqtt connector.
- *
- * @param  {Object}   msg     request message
- * @param  {Object}   session current session object
- * @param  {Function} next    next step callback
- * @return {Void}
- */
-Handler.prototype.publish = function(msg, session, next) {
-	var result = {
-		topic: 'publish',
-		payload: JSON.stringify({code: 200, msg: 'publish message is ok.'})
-	};
-  next(null, result);
+let onUserLeave = function (app, session, reason) {
+    console.log('onUserLeave-reason: ', reason);
+	if(!session || !session.uid) {
+		return;
+	}
+
+	utils.myPrint('1 ~ OnUserLeave is running ...');
+	// app.rpc.area.playerRemote.playerLeave(session, {playerId: session.get('playerId'), instanceId: session.get('instanceId')}, function(err){
+	// 	if(!!err){
+	// 		logger.error('user leave error! %j', err);
+	// 	}
+	// });
+	app.rpc.chat.chatRemote.kick(session, session.uid, null);
 };
 
-/**
- * Subscribe route for mqtt connector.
- *
- * @param  {Object}   msg     request message
- * @param  {Object}   session current session object
- * @param  {Function} next    next step callback
- * @return {Void}
- */
-Handler.prototype.subscribe = function(msg, session, next) {
-	var result = {
-		topic: 'subscribe',
-		payload: JSON.stringify({code: 200, msg: 'subscribe message is ok.'})
-	};
-  next(null, result);
-};
+// /**
+//  * Publish route for mqtt connector.
+//  *
+//  * @param  {Object}   msg     request message
+//  * @param  {Object}   session current session object
+//  * @param  {Function} next    next step callback
+//  * @return {Void}
+//  */
+// Handler.prototype.publish = function(msg, session, next) {
+// 	var result = {
+// 		topic: 'publish',
+// 		payload: JSON.stringify({code: 200, msg: 'publish message is ok.'})
+// 	};
+//   next(null, result);
+// };
+
+// /**
+//  * Subscribe route for mqtt connector.
+//  *
+//  * @param  {Object}   msg     request message
+//  * @param  {Object}   session current session object
+//  * @param  {Function} next    next step callback
+//  * @return {Void}
+//  */
+// Handler.prototype.subscribe = function(msg, session, next) {
+// 	var result = {
+// 		topic: 'subscribe',
+// 		payload: JSON.stringify({code: 200, msg: 'subscribe message is ok.'})
+// 	};
+//   next(null, result);
+// };
