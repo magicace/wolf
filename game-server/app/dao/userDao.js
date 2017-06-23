@@ -67,6 +67,32 @@ userDao.getPlayersByUid = function(uid, cb){
 	});
 };
 
+/**
+ * Set the roomId of a online player.
+ * @param {Number} roomId, current room id;
+ * @param {Number} playerId, player's id
+ * @param {Function} cb Callback function.
+ */
+userDao.setRoomId = function(roomId,playerId,cb) {
+	let sql = 'update Player set roomId = ? where id = ?';
+	let args = [roomId,playerId];
+	
+	pomelo.app.get('dbclient').query(sql,args,function(err, res) {
+		if (err) {
+			utils.invokeCallback(cb, err.message, null);
+			return;
+		} else {
+			if (!!res && res.affectedRows>0) {
+				utils.invokeCallback(cb,null,true);
+			} else {
+				//暂时不记录
+				// logger.error('update player failed!');
+				utils.invokeCallback(cb,null,false);
+			}
+		}
+	});
+}
+
 
 // /**
 //  * Get user data by username.

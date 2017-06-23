@@ -63,11 +63,11 @@ Handler.prototype.entry = function(msg, session, next) {
 			}
 
 			player = players[0];
-			player.areaId = 1;
-
-			// session.set('serverId', self.app.get('areaIdMap')[player.areaId]);
-			session.set('playername', player.name);
+			session.set('playerName', player.name);
 			session.set('playerId', player.id);
+			session.set('playerLevel',player.level);
+			session.set('playerIcon',player.iconIndex);
+			session.set('playerSt',1);
 			session.on('closed', onUserLeave.bind(null, self.app));
 			session.pushAll(cb);
 		},
@@ -82,7 +82,6 @@ Handler.prototype.entry = function(msg, session, next) {
 				return;
 			}
 
-			console.log('entry success!!!');
 			next(null, {code: Code.OK, player: players ? player : null});
 		}
 	]);
@@ -100,6 +99,24 @@ let onUserLeave = function (app, session, reason) {
 	// 		logger.error('user leave error! %j', err);
 	// 	}
 	// });
+
+
+	let playerSt = session.get('playerSt');
+
+	if (playerSt == 2) {
+		let typeId = session.get('typeId');
+		let roomId = session.get('roomId');
+		let playerId = session.get('playerId');
+		app.rpc.match.matchRemote.playerLeave(session,typeId,roomId,playerId,function(data){
+			if(data.code !== Code.OK){
+				// logger.error('user leave error! %j', code);
+				console.log('user leave error! %j', data.code);
+			} else {
+				console.log('============ player %j has left', playerId);
+			}
+		});
+	}
+	
 	app.rpc.chat.chatRemote.kick(session, session.uid, null);
 };
 

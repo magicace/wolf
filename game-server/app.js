@@ -1,5 +1,6 @@
 const pomelo = require('pomelo');
 const ChatService = require('./app/services/chatService');
+const AreaService = require('./app/services/areaService');
 const routeUtil = require('./app/util/routeUtil');
 
 /**
@@ -8,7 +9,13 @@ const routeUtil = require('./app/util/routeUtil');
 var app = pomelo.createApp();
 app.set('name', 'werewolf');
 
-// app.configure('production|development', function () {
+//define a global counter
+// let counter = 0;
+// app.getCounter = function() {
+//     return ++counter;
+// }
+
+app.configure('production|development', function () {
     app.before(pomelo.filters.toobusy());
     app.enable('systemMonitor');
 
@@ -21,10 +28,20 @@ app.set('name', 'werewolf');
 //     //     // app.registerAdmin(sceneInfo, {app: app});
 //     //     app.registerAdmin(onlineUser, {app: app});
 //     // }
-// });
+});
 
 // configure for global
 app.configure('production|development', function () {
+    //Set areasIdMap, a map from area id to serverId.
+    // if (app.serverType !== 'master') {
+    //     var areas = app.get('servers').area;
+    //     var areaIdMap = {};
+    //     for (var id in areas) {
+    //         areaIdMap[areas[id].area] = areas[id].id;
+    //     }
+    //     app.set('areaIdMap', areaIdMap);
+    // }
+    
     // proxy configures
     app.set('proxyConfig', {
         cacheMsg: true,
@@ -75,7 +92,7 @@ app.configure('production|development', 'auth', function () {
 });
 
 // Configure database
-app.configure('production|development', 'auth|connector|chat', function () {
+app.configure('production|development', 'auth|connector|chat|area', function () {
     var dbclient = require('./app/dao/mysql/mysql').init(app);
     app.set('dbclient', dbclient);
     // app.load(pomelo.sync, {path:__dirname + '/app/dao/mapping', dbclient: dbclient});
@@ -85,6 +102,11 @@ app.configure('production|development', 'auth|connector|chat', function () {
 // Configure for chat server
 app.configure('production|development', 'chat', function () {
     app.set('chatService', new ChatService(app));
+});
+
+// Configure for area server
+app.configure('production|development', 'area', function () {
+    app.set('areaService', new AreaService(app));
 });
 
 // start app

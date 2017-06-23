@@ -1,6 +1,6 @@
 var crc = require('crc');
 
-module.exports.dispatch = function(uid, connectors) {
-	var index = Number(uid) % connectors.length;
-	return connectors[index];
+module.exports.dispatch = function(uid, srvs) {
+	var index = Number(uid) % srvs.length;
+	return srvs[index];
 };

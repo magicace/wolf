@@ -80,5 +80,38 @@ utils.myPrint = function() {
     console.log('\n' + aimStr);
   }
 };
+
+//在输入的最小值到最大值闭区间:[min,max]中取随机整数。
+//如省略第二个参数，将在闭区间：[0, min]中取随机整数。
+utils.rand = function(min,max) {
+    if (max === undefined) {
+        max = min;
+        min = 0;
+    }
+    
+    let rtn = min;
+    let len = max - min + 1;
+
+    if (len >0) {
+        rtn += Math.floor(Math.random() * len);
+    }
+    return rtn;
+},
+/**
+ *  Fisher-Yate Shuffle Algorithm
+ *  Added by Ace 2017-6-12
+ * @param t array of any
+ * @return new confused array
+ */
+utils.shuffle = function(t) {
+      let len = t.length;
+      for (let i = 0; i < len; ++i) {
+          let j = this.rand(len-1);
+          let tmp = t[i];
+          t[i] = t[j];
+          t[j] = tmp;
+      }
+      return t;
+}
 // print the file name and the line number ~ end
 

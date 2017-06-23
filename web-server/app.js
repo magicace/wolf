@@ -52,9 +52,11 @@ app.all('*', function(req, res, next) {
 app.get('/register/*',function(req,res) {
   var name = req.query.name;
   var pass = req.query.pwd;
+  var icon = req.query.idx;
   console.log("================ Register ===================");
   console.log("name=",name);
   console.log("pass=",pass);
+
 
   if (!name || !pass) {
     res.send({code: 500});
@@ -66,7 +68,7 @@ app.get('/register/*',function(req,res) {
 
   pass = Md5.b64_md5(pass + salt);
 
-  userDao.createUser(name, pass, salt,function(err, user) {
+  userDao.createUser(name, pass, salt,icon,function(err, user) {
     console.log("err:",err);
     if (err || !user) {
       if (err && err.code === 1062) {

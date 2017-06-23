@@ -18,13 +18,14 @@
  *          let foo = function(argvs) {...}
  * 
  * 3. add module.exports, encapsulate function export.
- * 4. add global const value tab, delete the local define from function rstr2b64.
+ * 4. add global const value 'tab', delete the local define from function rstr2b64.
  * 5. add export function getSalt, create four characters as salt.
  * 
  *-------------------------------------------------------------
  */
 
 // add by Ace 2017-5-22. 
+// replace the char '+' to '_' for http_request.
 const tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_/";
 
 /*
@@ -151,7 +152,7 @@ let rstr2any = function(input, encoding)
    * use.
    */
   let full_length = Math.ceil(input.length * 8 /
-                                    (Math.log(encoding.length) / Math.log(2)));
+                        (Math.log(encoding.length) / Math.log(2)));
   let remainders = Array(full_length);
   for(j = 0; j < full_length; j++)
   {
@@ -441,5 +442,5 @@ module.exports = {
         return rstr2any(rstr_hmac_md5(str2rstr_utf8(k), str2rstr_utf8(d)), e); 
     },
 
-    getSalt: getSalt,
+    getSalt: getSalt
 }

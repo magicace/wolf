@@ -14,3 +14,479 @@
     at Timer.listOnTimeout (timers.js:214:5)
 [2017-05-26 10:46:25.331] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: auth-server-1, msg: {"namespace":"user","serverType":"auth","service":"authRemote","method":"auth","args":["07ff812d832946253364bdb8eaad219d"]}, error code: 5
 [2017-05-26 10:46:25.347] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mmqtt rpc client connector-server-2 checkKeepAlive timeout from remote server auth-server-1 for 20000 lastPing: 1495766765330 lastPong: -1
+[2017-06-01 17:43:32.215] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3250
+[2017-06-01 17:44:02.181] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+[2017-06-01 17:44:02.182] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-01 17:44:02.183] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: area-server-1, msg: {"namespace":"user","serverType":"area","service":"areaRemote","method":"add","args":[]}, error code: 5
+[2017-06-01 17:51:43.246] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3250
+[2017-06-01 17:52:13.210] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+[2017-06-01 17:52:13.212] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-01 17:52:13.212] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: area-server-1, msg: {"namespace":"user","serverType":"area","service":"areaRemote","method":"add","args":[]}, error code: 5
+[2017-06-05 14:22:33.846] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-05 14:23:03.803] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 14:23:03.805] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 14:23:03.806] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1}}]}, error code: 5
+[2017-06-05 14:32:59.598] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-05 14:33:29.551] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 14:33:29.559] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 14:33:29.561] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1}}]}, error code: 5
+[2017-06-05 14:53:13.180] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-05 14:53:43.144] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 14:53:43.148] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 14:53:43.149] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1}}]}, error code: 5
+[2017-06-05 17:59:31.840] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 17:59:31.846] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 17:59:31.846] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":5}}]}, error code: 5
+[2017-06-05 18:04:20.324] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 18:04:20.325] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 18:04:20.326] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":5}}]}, error code: 5
+[2017-06-05 18:06:19.296] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+[2017-06-05 18:06:19.297] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 18:06:19.299] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":5}}]}, error code: 5
+[2017-06-05 19:21:07.440] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-05 19:21:37.402] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 19:21:37.404] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 19:21:37.405] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6}}]}, error code: 5
+[2017-06-05 19:56:28.029] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-05 19:56:57.987] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+[2017-06-05 19:56:57.995] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 19:56:57.997] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6}}]}, error code: 5
+[2017-06-05 20:15:35.770] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-05 20:15:35.772] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 20:15:35.773] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6}}]}, error code: 5
+[2017-06-05 20:22:55.940] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+[2017-06-05 20:22:55.943] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-05 20:22:55.943] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":5}}]}, error code: 5
+[2017-06-06 13:06:27.283] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: logger is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:114:5
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-06 13:19:15.630] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: logger is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:114:5
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-06 13:55:12.357] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: logger is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:114:5
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-06 14:16:39.377] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-06 14:17:09.332] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+[2017-06-06 14:17:09.334] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-06 14:17:09.335] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"playerRemote","method":"playerLeave","args":[1,1,9,"connector-server-2"]}, error code: 5
+[2017-06-07 11:30:25.180] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-07 11:30:55.131] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 9 host: 127.0.0.1, port: 3020
+[2017-06-07 11:30:55.133] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 9 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-07 11:30:55.133] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.cancel","body":{},"compressGzip":0},{"id":5,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"roomId":2}}]}, error code: 5
+[2017-06-07 11:41:24.315] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-07 11:41:54.294] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+[2017-06-07 11:41:54.296] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-07 11:41:54.297] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.cancel","body":{"area":0},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":5,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-08 11:34:41.735] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 11:35:11.684] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-08 11:35:11.688] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 11:35:11.689] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"area":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":1}}]}, error code: 5
+[2017-06-08 12:01:01.340] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 12:01:07.173] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 12:01:31.315] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+[2017-06-08 12:01:31.317] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 12:01:31.317] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.ready","body":{"tyepId":0,"roomId":1,"playerId":1},"compressGzip":0},{"id":3,"frontendId":"connector-server-2","uid":9,"settings":{"playerName":"acer","playerId":1,"playerLevel":1,"playerIcon":2,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-08 12:01:37.113] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3020
+[2017-06-08 12:01:37.116] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 12:01:37.117] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.ready","body":{"tyepId":0,"roomId":1,"playerId":6},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-08 12:05:12.569] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 12:05:42.545] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+[2017-06-08 12:05:42.548] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 12:05:42.549] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.ready","body":{"tyepId":0,"roomId":1,"playerId":6},"compressGzip":0},{"id":3,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-08 12:06:36.321] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 12:07:06.256] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+[2017-06-08 12:07:06.257] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 3 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 12:07:06.258] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.ready","body":{"tyepId":0,"roomId":1,"playerId":6},"compressGzip":0},{"id":3,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-08 12:13:02.130] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-08 12:13:32.121] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 10 host: 127.0.0.1, port: 3020
+[2017-06-08 12:13:32.121] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 10 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-08 12:13:32.122] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.ready","body":{"tyepId":0,"roomId":1,"playerId":6},"compressGzip":0},{"id":4,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-09 11:03:35.000] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 11:04:04.937] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 86 host: 127.0.0.1, port: 3020
+[2017-06-09 11:04:04.939] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 86 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 11:04:04.939] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":5,"type":0,"compressRoute":0,"route":"match.matchHandler.cancel","body":{"area":0},"compressGzip":0},{"id":30,"frontendId":"connector-server-2","uid":9,"settings":{"playerName":"acer","playerId":1,"playerLevel":1,"playerIcon":2,"playerSt":2,"roomId":1}}]}, error code: 5
+[2017-06-09 15:19:21.737] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 15:19:51.722] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+[2017-06-09 15:19:51.725] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 15:19:51.727] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.leave","body":{"typeId":0,"roomId":1},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":2,"typeId":0,"roomId":1}}]}, error code: 5
+[2017-06-09 15:22:10.400] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 15:22:40.367] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+[2017-06-09 15:22:40.368] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 15:22:40.369] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":0,"route":"match.matchHandler.leave","body":{"typeId":0,"roomId":1},"compressGzip":0},{"id":2,"frontendId":"connector-server-2","uid":31,"settings":{"playerName":"devil","playerId":17,"playerLevel":1,"playerIcon":4,"playerSt":2,"typeId":0,"roomId":1}}]}, error code: 5
+[2017-06-09 15:32:31.143] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 15:32:31.343] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 15:32:31.465] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 15:33:01.074] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3020
+[2017-06-09 15:33:01.075] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 15:33:01.075] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,17]}, error code: 5
+[2017-06-09 15:33:01.290] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 5 host: 127.0.0.1, port: 3020
+[2017-06-09 15:33:01.290] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 5 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 15:33:01.291] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,1]}, error code: 5
+[2017-06-09 15:33:01.423] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 6 host: 127.0.0.1, port: 3020
+[2017-06-09 15:33:01.423] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 6 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 15:33:01.424] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,6]}, error code: 5
+[2017-06-09 16:09:20.944] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:09:23.766] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:09:50.889] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 11 host: 127.0.0.1, port: 3020
+[2017-06-09 16:09:50.891] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 11 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:09:50.892] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,1]}, error code: 5
+[2017-06-09 16:09:53.708] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 12 host: 127.0.0.1, port: 3020
+[2017-06-09 16:09:53.709] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 12 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:09:53.709] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,6]}, error code: 5
+[2017-06-09 16:09:53.724] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 13 host: 127.0.0.1, port: 3020
+[2017-06-09 16:09:53.725] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 13 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:09:53.725] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,17]}, error code: 5
+[2017-06-09 16:11:23.892] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:11:49.846] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: code is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:114:41
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-09 16:11:50.089] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: code is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:114:41
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-09 16:11:53.825] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 23 host: 127.0.0.1, port: 3020
+[2017-06-09 16:11:53.826] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 23 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:11:53.827] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":["0",2,6]}, error code: 5
+[2017-06-09 16:14:44.064] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:15:14.035] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 29 host: 127.0.0.1, port: 3020
+[2017-06-09 16:15:14.036] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 29 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:15:14.036] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,2,17]}, error code: 5
+[2017-06-09 16:17:02.884] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:17:02.885] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-09 16:17:32.816] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 38 host: 127.0.0.1, port: 3020
+[2017-06-09 16:17:32.818] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 38 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:17:32.819] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,2,1]}, error code: 5
+[2017-06-09 16:17:32.820] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 39 host: 127.0.0.1, port: 3020
+[2017-06-09 16:17:32.820] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 39 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+    at listOnTimeoutNT (timers.js:276:26)
+    at _combinedTickCallback (internal/process/next_tick.js:77:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+[2017-06-09 16:17:32.820] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,2,17]}, error code: 5
+[2017-06-09 16:17:32.841] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 40 host: 127.0.0.1, port: 3020
+[2017-06-09 16:17:32.841] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 40 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-09 16:17:32.841] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,2,6]}, error code: 5
+[2017-06-12 15:58:22.858] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-12 15:58:52.819] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-12 15:58:52.820] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 15:58:52.820] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"typeId":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":1}}]}, error code: 5
+[2017-06-12 15:59:34.924] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-12 16:00:04.886] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+[2017-06-12 16:00:04.895] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:00:04.896] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"sys","serverType":"match","service":"msgRemote","method":"forwardMessage","args":[{"id":3,"type":0,"compressRoute":0,"route":"match.matchHandler.entry","body":{"typeId":0},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":15,"settings":{"playerName":"magic","playerId":6,"playerLevel":1,"playerIcon":6,"playerSt":1}}]}, error code: 5
+[2017-06-12 16:10:29.161] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-12 16:10:29.162] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3020
+[2017-06-12 16:10:59.104] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 6 host: 127.0.0.1, port: 3020
+[2017-06-12 16:10:59.107] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 6 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:10:59.109] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,6]}, error code: 5
+[2017-06-12 16:10:59.125] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 7 host: 127.0.0.1, port: 3020
+[2017-06-12 16:10:59.126] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 7 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:10:59.127] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,1]}, error code: 5
+[2017-06-12 16:10:59.149] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+[2017-06-12 16:10:59.149] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:10:59.149] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,8]}, error code: 5
+[2017-06-12 16:20:05.216] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: uid is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:115:50
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-12 16:20:35.171] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 7 host: 127.0.0.1, port: 3020
+[2017-06-12 16:20:35.172] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 7 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:20:35.172] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,6]}, error code: 5
+[2017-06-12 16:20:35.177] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+[2017-06-12 16:20:35.178] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 16:20:35.178] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,8]}, error code: 5
+[2017-06-12 16:24:34.597] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: code is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:113:41
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-12 17:22:38.379] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: uid is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:115:50
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-12 17:22:54.850] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: uid is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:115:50
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-12 17:23:24.791] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+[2017-06-12 17:23:24.792] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 8 host: 127.0.0.1, port: 3020
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-12 17:23:24.793] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: match-server-1, msg: {"namespace":"user","serverType":"match","service":"matchRemote","method":"playerLeave","args":[0,1,8]}, error code: 5
+[2017-06-12 17:28:53.145] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: uid is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:115:50
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-12 17:28:53.805] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc client connector-server-2 process remote server match-server-1 message with error: ReferenceError: uid is not defined
+    at /home/ace/prog/werewolf/game-server/app/servers/connector/handler/entryHandler.js:115:50
+    at Object.Utils.applyCallback (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/util/utils.js:11:6)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:268:15
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:356:5)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:379:9
+    at Filter.after (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/filters/rpc/rpcLog.js:43:3)
+    at doFilter (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:374:20)
+    at /home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailstation.js:264:7
+    at processMsg (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:245:3)
+    at processMsgs (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:224:5)
+[2017-06-22 10:04:57.967] [WARN] pomelo-rpc - [33m[mqtt-mailbox] [39mtimer is not exsits, serverId: connector-server-2 remote: undefined, host: 127.0.0.1, port: 3255
+[2017-06-22 10:05:27.944] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3255
+[2017-06-22 10:05:27.947] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-2 callback timeout 30000, remote server 4 host: 127.0.0.1, port: 3255
+    at Timeout.<anonymous> (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-client/mailboxes/mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:386:14)
+    at tryOnTimeout (timers.js:250:5)
+    at Timer.listOnTimeout (timers.js:214:5)
+[2017-06-22 10:05:27.947] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: area-server-5, msg: {"namespace":"sys","serverType":"area","service":"msgRemote","method":"forwardMessage","args":[{"id":5,"type":0,"compressRoute":0,"route":"area.areaHandler.entry","body":{},"compressGzip":0},{"id":1,"frontendId":"connector-server-2","uid":19,"settings":{"playerName":"abcd","playerId":8,"playerLevel":1,"playerIcon":17,"playerSt":2,"typeId":0,"roomId":1,"serverId":"area-server-5"}}]}, error code: 5
+[2017-06-22 11:18:24.364] [ERROR] pomelo-rpc - [31m[mqtt-acceptor] [39mprocess rpc message error TypeError: First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.
+    at fromObject (buffer.js:262:9)
+    at Function.Buffer.from (buffer.js:101:10)
+    at new Buffer (buffer.js:80:17)
+    at Object.Protocol.strencode (/home/ace/prog/werewolf/game-server/node_modules/pomelo-protocol/lib/protocol.js:41:15)
+    at Object.Message.encode (/home/ace/prog/werewolf/game-server/node_modules/pomelo-protocol/lib/protocol.js:183:28)
+    at composePush (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/connectors/common/coder.js:70:18)
+    at Connector.encode (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/connectors/common/coder.js:9:12)
+    at Component.pro.send (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/components/connector.js:100:27)
+    at Remote.pushMessage (/home/ace/prog/werewolf/game-server/node_modules/pomelo/lib/common/remote/frontend/channelRemote.js:48:13)
+    at Dispatcher.pro.route (/home/ace/prog/werewolf/game-server/node_modules/pomelo-rpc/lib/rpc-server/dispatcher.js:52:10)

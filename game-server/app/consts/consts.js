@@ -13,7 +13,6 @@ module.exports = {
     ERROR_DUP_ENTRY	: 1062
   },
 
-
   MESSAGE: {
     RES: 200,
     ERR: 500,
@@ -42,5 +41,14 @@ module.exports = {
   Event:{
     chat:'onChat'
   },
+
+  RoleType: {
+    VILLAGER: 0,
+    SEER    : 1,
+    WITCH   : 2,
+    HUNTER  : 3,
+    GUARDER : 4,
+    WOLF    : 5, 
+  }
 
 };
