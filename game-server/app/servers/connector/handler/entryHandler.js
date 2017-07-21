@@ -21,7 +21,7 @@ var Handler = function(app) {
  * @return {Void}
  */
 Handler.prototype.entry = function(msg, session, next) {
-	console.log('entry:',msg);
+	// console.log('entry:',msg);
 	let token = msg.token;
 	let self = this;
 
@@ -76,7 +76,6 @@ Handler.prototype.entry = function(msg, session, next) {
 			self.app.rpc.chat.chatRemote.add(session, player.userId, player.name, channelName, cb);		
 		},
 		function(code) {
-			console.log(code == Code.OK);
 			if (code !== Code.OK) {
 				next(null, {code: Code.FAIL});
 				return;

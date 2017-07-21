@@ -80,6 +80,7 @@ utils.myPrint = function() {
     console.log('\n' + aimStr);
   }
 };
+// print the file name and the line number ~ end
 
 //在输入的最小值到最大值闭区间:[min,max]中取随机整数。
 //如省略第二个参数，将在闭区间：[0, min]中取随机整数。
@@ -113,5 +114,48 @@ utils.shuffle = function(t) {
       }
       return t;
 }
-// print the file name and the line number ~ end
+
+/**
+ * Remove the first one member from array
+ * @param array the array
+ * @param value the value of the member you want to remove
+ * @return the value if success or null;
+ */
+utils.removeFromArray = function(array,value) {
+  let index = null;
+  for (i=0; i<array.length; ++i) {
+    if (array[i] === value) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index !== null) {
+    return array.splice(index,1);
+  } else {
+    return null;
+  }
+}
+
+/**
+ * Insert a unique value into array
+ * @param array the array
+ * @param value the value you want to insert
+ * @return if insert or not 
+ */
+// uitls.uniqPushArray = function(array,value) {
+//   let isUniq = true;
+//   for (let i in array) {
+//     if (array[i] === value) {
+//       isUniq = false;
+//       break;
+//     }
+//   }
+
+//   if (isUniq) {
+//     array.push(value);
+//   }
+
+//   return isUniq;
+// }
 
