@@ -31,7 +31,8 @@ module.exports = {
 	},
 
 	AREA: {
-		FA_ROOM_CREATE:			5001
+		FA_ROOM_CREATE:			5001,
+		FA_ROOM_OUTOFTIME:		5005,
 	}
 
 };

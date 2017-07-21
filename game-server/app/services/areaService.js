@@ -17,14 +17,17 @@ pro.createRoom = function(msg) {
     }
     let players = JSON.parse(msg.players);
     let room = new GameRoom(param);
-    if (room.addGroup(players)) {
-        this.roomMap[msg.roomId] = room;
-    } else {
-        room = null;
-        return false;
-    }
 
-    room.createRole();
+    // if (room.addGroup(players)) {
+    //     this.roomMap[msg.roomId] = room;
+    // } else {
+    //     room = null;
+    //     return false;
+    // }
+
+    // room.createRole();
+    room.addGroup(players);
+    this.roomMap[msg.roomId] = room;
     return true;
 }
 
