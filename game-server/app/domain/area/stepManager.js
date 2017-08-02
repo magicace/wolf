@@ -1,36 +1,44 @@
 const GameStep = {
     Start:      {module: 'Base', delay: 5, next: 'Dark'},       //游戏入口，自然延时5秒
     Dark:       {delay: 3, next: 'NightA'},                     //天黑了，设置游戏天计数
+    Dawn:       {delay: 3},                                     //天亮了，程序判断后续流程
+
     NightA:     {module: 'Night',delay: 15, next: 'NightB'},    //晚上阶段A,狼人杀人阶段
     NightB:     {module: 'Night',delay: 10, next: 'Dawn'},      //晚上阶段B，预言家/守卫/女巫行动
-    
-    Dawn:       {delay: 3},                         //天亮了，程序判断后续流程
-    ElectA:     {delay: 11, next: 'ElectB'},        //玩家决定是否上警阶段
-    ElectB:     {delay: 1, next:'SpeechA'},         //显示上警情况
-    SpeechA:    {delay: 30, next:'SpeechB'},        //发言阶段，通用
+
+    VotingA:    {module: 'VotingA', delay: 20, next: 'VotingB'},//投票阶段，通用
+    VotingB:    {delay: 10},                                    //显示票型阶段
+
+    ElectA:     {delay: 10},                        //玩家决定是否上警阶段,Sheriff
+    ElectB:     {delay: 1},                         //发言组举手, 也用于平票pk准备阶段。ShowPK
+    ShowPk:     {delay: 1},                         //发言组举手, 也用于平票pk准备阶段。
+    ElectC:     {delay: 10, },                      //退水阶段，GiveUp
+
+    SpeechA:    {delay: 30, next: 'SpeechB'},       //发言阶段，通用
     SpeechB:    {delay: 1},                         //发言结束，通用，程序判断后续流程。
 
-    ElectC:     {delay: 10, next: 'VotingA'},                   //退水阶段
-    VotingA:    {module: 'VotingA', delay: 20, next: 'VotingB'},//投票阶段
-    VotingB:    {delay: 10, next:'Result'},                     //显示票型阶段
-    Result:     {/*module: 'Result' ,*/delay: 5},              //显示投票结果阶段
+    Sheriff:    {delay: 3},                         //显示警长归属
+    Result:     {delay: 3},                         //显示公投结果
+
+    DeathNews:  {delay: 3},                         //显示夜间死亡消息。     
+    LastSkill:  {module:'LastSkill', delay: 15},    //发动死亡技能
+    MoveBadge:  {delay: 15},                        //移交警徽
+    Order:      {delay: 10},                        //警长决定发言顺序
+
+
+    EventSpeech:{module:'EventSpeech'},             //演讲事件
+    EventFight: {module:'EventFight'},              //竞争事件，包括从演讲到投票以及平票pk的过程；
+    EventElect: {module:'EventElect'},              //选举警长事件
+    EventDeath: {module:'EventDeath'},              //死亡事件
+    EventDay:   {module:'EventDay'},                //日常白天阶段
 
     Pause:      {module: 'Base', delay: 1},         //调试暂停
 
 };
 
-    
-//     Result: {sec:10,next:'Pause'},              //显示结果阶段
-//     LastWords: {sec:61,next:'NightA'},          //遗言阶段
-//     ShowDead: {sec: 15, /*next:'SpkOrder'*/},   //显示夜里死亡清单
-//     SpkOrder: {sec: 15, next:'SpeechA'},        //有警长时候，警长决定发言顺序
-
-//     Pause: {sec:1}
-
-
 //基类文件设置原则：如果设置文件中如果有module项，用此项设置的名字，否则用'Step'。
 ///require不能容错，所以要确保要加载的文件一定存在。
-let Manager = function(pGame,stepName) {
+let Manager = function(pSuper,stepName) {
     let data        = GameStep[stepName] || {};
     data.route      = data.route || 'on' + stepName;
     data.delay      = data.delay || 3;
@@ -38,7 +46,7 @@ let Manager = function(pGame,stepName) {
     let moduleName = data.module ? data.module : 'Step';
     let stepBase = require('./steps/' + moduleName);
     let param = {
-        pGame:  pGame,
+        pSuper: pSuper,
         name:   stepName,
         route:  data.route,
         delay:  data.delay,

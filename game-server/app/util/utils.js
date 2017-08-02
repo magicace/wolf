@@ -143,7 +143,7 @@ utils.removeFromArray = function(array,value) {
  * @param value the value you want to insert
  * @return if insert or not 
  */
-// uitls.uniqPushArray = function(array,value) {
+// utils.uniqPushArray = function(array,value) {
 //   let isUniq = true;
 //   for (let i in array) {
 //     if (array[i] === value) {
@@ -158,4 +158,51 @@ utils.removeFromArray = function(array,value) {
 
 //   return isUniq;
 // }
+
+
+utils.findNextId = function(idGroup,srcId,isAscent) {
+    console.log('======================================= !!!');
+    console.log(idGroup,srcId,isAscent);
+    if (isAscent === undefined) {
+        isAscent = true;
+    }
+
+    let findId;
+    let len = idGroup.length;
+
+    if (!srcId) {   //没有初始位置，随机产生一个开始位置
+        let index = this.rand(len - 1);
+        findId = idGroup[index];
+    } else {
+        if (len <= 1) {
+            findId = null;
+        } else {
+            //找到srcId在群组中的位置
+            let index = null;
+            for (let i=0; i<len; ++i) {  
+                if (idGroup[i] === srcId) {
+                    index = i;
+                    break;
+                }
+            }
+
+            // 这里判断条件不能用（！index)，因为 ！0 = true;
+            if (index === null) {   //异常情况，正常不应该出现，一定是程序逻辑有什么地方有问题。
+                console.log('===================, cannot find the srcId !!!');
+                return null;
+            }
+
+            index += isAscent ? 1 : -1;
+            if (index < 0) {
+                index = len - 1;
+            } else if (index === len) {
+                index = 0;
+            }
+
+            findId = idGroup[index];
+        }
+    }
+
+    return findId;
+}
 

@@ -32,7 +32,8 @@ module.exports = {
 
 	AREA: {
 		FA_ROOM_CREATE:			5001,
-		FA_ROOM_OUTOFTIME:		5005,
+		FA_PLAYER_NOT_FIT:		5002,	//来自错误玩家的消息。外挂？
+		FA_ROOM_OUTOFTIME:		5005,	//来自错误时间的消息。外挂？未考虑到的长延时？
 	}
 
 };

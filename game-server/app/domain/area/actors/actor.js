@@ -1,23 +1,10 @@
-// class Actor {
-//     constructor(param) {
-//         this.id = param.id;
-//         this.name = param.name;
-//         this.icon = param.icon;
-//         this.role = param.role;
-//     }
-
-//     getActMsg() {
-//         return {isActStep :false};
-//     }
-
-// }
-
 Actor = function(param) {
     this.id = param.id;
     this.name = param.name;
     this.icon = param.icon;
     this.role = param.role;
     this.pGame = param.pGame;
+    this.isDead = false;
 }
 
 let pro = Actor.prototype;
@@ -29,11 +16,11 @@ pro.init = function(uid,sid) {
 }
 
 pro.getActMsg = function(stepName) {
-    return {isActStep: stepName === this.skillStep};
+    return {isActStep: stepName === this.skillStep && !this.isDead};
 }
 
-pro.setStepTarget = function(step,msg) {
-    if (this.skillStep === step) {  //技能发动阶段的选择
+pro.setStepTarget = function(stepName,msg) {
+     if (stepName === this.skillStep) {  //技能发动阶段的选择
         this.setSkillEffect(msg);
     } else {                        //投票阶段的选择
         this.setTarget(msg.target);
@@ -48,6 +35,30 @@ pro.setTarget = function(target) {
     this.target = target;
 }
 
+pro.sendMsg = function(route,msg) {
+    if (this.isOnline) {
+        let uids = [{uid:this.uid,sid:this.sid}];
+        this.pGame.channelService.pushMessageByUids({route:route,msg:JSON.stringify(msg)},uids,null);
+    }
+}
+
+module.exports = Actor;
+
+
+// class Actor {
+//     constructor(param) {
+//         this.id = param.id;
+//         this.name = param.name;
+//         this.icon = param.icon;
+//         this.role = param.role;
+//     }
+
+//     getActMsg() {
+//         return {isActStep :false};
+//     }
+
+// }
+
 // pro.sendSkillMsg = function(route,stepName) {
 //     let msg = this.getActMsg(stepName);
 //     this.sendMsg(route,msg);    
@@ -58,12 +69,3 @@ pro.setTarget = function(target) {
 //         this.sendMsg(route,this.msg);
 //     }
 // }
-
-pro.sendMsg = function(route,msg) {
-    if (this.isOnline) {
-        let uids = [{uid:this.uid,sid:this.sid}];
-        this.pGame.channelService.pushMessageByUids({route:route,msg:JSON.stringify(msg)},uids,null);
-    }
-}
-
-module.exports = Actor;

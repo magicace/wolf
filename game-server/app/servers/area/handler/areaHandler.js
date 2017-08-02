@@ -67,3 +67,13 @@ pro.skipSpeech = function(msg,session,next) {
         next();
     });
 }
+
+pro.order = function(msg,session,next) {
+    let roomId = session.get('roomId');
+    let playerId = session.get('playerId');
+    let room = this.areaService.getRoomById(roomId);
+
+    room.onSheriffOrder(playerId,msg,function(code){
+        next();
+    });
+}

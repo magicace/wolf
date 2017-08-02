@@ -10,43 +10,42 @@ const Utils = require('../../util/utils');
 const PlayerMaker = require('./playerMaker');
 const StepManager = require('./stepManager');
 
+const Controller = require('./controller');
+
 let GameRoom = function(param) {
     this.app = param.app;
     this.id = param.roomId;
-    this.typeId = param.typeId;
+    this.typeId = param.typeId;  
 
     this.players = [];
     this.wolves = [];
     // this.roomGroup = [];    //用于组消息发送，全房间同时发送，消息不一定相同时。
     this.dayCount = 0;
-
+    this.isAscent = true;       //默认发言顺序为升序。
     this.playersMap = {};
     this.isElectOver = false;
 
     this.channelService = this.app.get('channelService');
     this.roomChannel = this.channelService.getChannel(ChannelUtil.getRoomChannelName(this.id),true);
     this.wolfChannel = this.channelService.getChannel(ChannelUtil.getWolfChannelName(this.id),true);
-
-    //自定义通道
-    // this.wolvesChannel = [];
-    // this.commonChannel = [];
-    
-    //等待5000毫秒，游戏开始。
-    // let self = this;
-    // setTimeout(function(){
-    //     return self.gameLoop('Start');
-    // },5000);
-
-    //Start已经作为一个阶段写入游戏阶段配置，在此配置中设置延时。
-    this.gameLoop('Start');
+;
+    this.pGame = this;
+    let self = this;
+    setTimeout(()=>{    //GameRoom初始化完毕之后再启动控制器。
+        let attr = {pEvent: self, name: 'Main'};
+        self.controller = new Controller(attr);
+        self.controller.init('Start');
+    },100);
+ 
 }
-
 // require('util').inherits(GameRoom,EventEmitter);
 
 module.exports = GameRoom;
 let pro = GameRoom.prototype;
-// EventEmitter(pro);
 
+pro.changeGameController = function(pController) {
+    this.curController = pController;
+},
 
 pro.sendRoomMsg = function(route,msg) {
     this.roomChannel.pushMessage({route:route,msg:JSON.stringify(msg)},null);
@@ -57,38 +56,6 @@ pro.sendWolfMsg = function(route,msg) {
     // this.channelService.pushMessageByUids({route:route,msg:msg},this.wolvesChannel,null);
 }
 
-
-// pro.sendGroupMsg = function(route,group) {
-//     for (let i in group) {
-//         let playerId = group[i];
-//         let player = this.playersMap[playerId];
-//         player.sendOwnMsg(route);
-//     }
-// }
-
-
-pro.gameLoop = function(stepName) {
-    console.log('===== the step name is: ',stepName);
-    let curStep = StepManager(this,stepName);
-    this.curStep = curStep;
-    curStep.begin();
-    
-    let self = this;
-    let interval = curStep.getInterval();
-    this.timer = setTimeout(function(){
-        curStep.end();
-        let nextStep = curStep.getNext();
-        if (nextStep) {
-            return self.gameLoop(nextStep);
-        }
-    },interval);
-    
-}
-
-pro.jumpTo = function(stepName) {
-    clearTimeout(this.timer);
-    this.gameLoop(stepName);
-}
 
 /**
  * Add player group into the room.
@@ -173,14 +140,45 @@ pro.onPlayerEnterRoom = function(playerId,uid,sid) {
 
 pro.onTargetSelected = function(playerId,msg,cb) {
     let player = this.playersMap[playerId];
-    player.setStepTarget(this.curStep.name, msg);
-
+    let curStepName = this.curController.curStep.name;
+    if (curStepName === 'MoveBadge') {
+        let targetPlayer = this.players[targetPlayer];
+        if (!targetPlayer.isDead) {
+            targetPlayer.isSheriff = true;
+            this.sheriffId = targetPlayer.id;
+            this.noticeSheriff(targetPlayer.id);
+            this.curController.skip();
+        }
+    } else {
+        player.setStepTarget(curStepName, msg);
+    }
+    
     cb(Code.OK);
+}
+
+pro.onSheriffOrder = function(playerId,msg,cb) {
+    if (playerId === this.sheriffId) {
+        // if (msg.isLeft) {
+        //     this.currId = this.findNextSpeaker(this.sheriffId,false);
+        //     this.nextId = this.findNextSpeaker(this.currId,false);
+        //     this.isAscent = false;
+        // }
+        // cb(Code.OK);
+        // // this.jumpTo('SpeechA');
+        // this.curController.jumpTo('SpeechA');
+
+        if (this.controller.curStep === 'EventDay') {
+            this.controller.curStep.onSheriffOrder(msg);
+            cb(Code.OK);
+        }
+    } else {
+        cb(Code.AREA.FA_PLAYER_NOT_FIT);
+    }
 }
 
 pro.onElectJoin = function(playerId,cb) {
     let code;
-    if (this.curStep.name === 'ElectA') {
+    if (this.curController.curStep.name === 'ElectA') {
         let player = this.playersMap[playerId];
         player.isJoin = true;
         code = Code.OK;
@@ -190,42 +188,32 @@ pro.onElectJoin = function(playerId,cb) {
     cb(code);
 }
 
-pro.onElectAbstain = function(playerId,cb) {
-    let player = this.playersMap[playerId];
-
-    if (playerId === this.nextId) {             //处理下一个发言者退出竞选的情况
-        this.nextId = this.findNextSpeaker(this.electsGroup,this.nextId);
-        // if (this.curStep.name === 'SpeechB') {  //发言准备阶段,即将发言，不允许放弃，目前设定只1秒。
-        //     console.log('================ 发言准备阶段不能放弃');
-        //     cb(Code.AREA.FA_ROOM_OUTOFTIME);
-        //     return;
-        // } else {    // 其他情况，查找下一个发言者。
-        //     this.nextId = this.findNextSpeaker(this.electsGroup,this.nextId);
-        // }
+pro.onElectAbstain = function(playerId,cb) {   
+    if (this.controller.curStep.name === 'EventElect') {    //当前主线进程到选举事件      
+        this.controller.curStep.onElectAbstain(playerId);
+    } else {
+        console.log("========================= !!!!!!!!!!!!!!!!!!!!")
     }
 
-    player.isJoin = false;
-    this.sendRoomMsg('onElectAbstain',{playerId:playerId});
     cb(Code.OK);
-
-    console.log("==========abstain=========:",this.electsGroup,playerId);
-    Utils.removeFromArray(this.electsGroup,playerId);
-    
-    if (this.electsGroup.length === 1) {
-        this.resultId = this.electsGroup[0];
-        this.isElectBreak = true;
-        this.jumpTo('SpeechB');
-    } 
 }
 
 //玩家主动跳过发言
 pro.onSkipSpeech = function(playerId,cb) {
-    if (playerId === this.currId && this.curStep.name === 'SpeechA') {
-        this.jumpTo('SpeechB');
+    if (playerId === this.curController.pEvent.currId && this.curController.curStep.name === 'SpeechA') {
         cb(Code.OK);
+        this.curController.jumpTo('SpeechB');
     } else {
         cb(Code.AREA.FA_ROOM_OUTOFTIME);
     }
+}
+
+pro.noticeDeath = function(playerId,reasonId) {
+    this.sendRoomMsg('onPlayerDied',{playerId:playerId, reasonId: reasonId});
+}
+
+pro.noticeSheriff = function(playerId) {
+    this.sendRoomMsg('onBeSheriff', {playerId:playerId});
 }
 
 /**
@@ -259,6 +247,7 @@ pro.clearTarget = function() {
         player.target = 0;
     }
 },
+
 
 //获取狼人夜间刀人的结果
 pro.getWolfKilled = function() {
@@ -306,6 +295,7 @@ pro.getDeadGroup = function() {
         }
     }
 
+    Utils.shuffle(group);   //死亡次序不分先后。
     return group;
 }
 
@@ -346,122 +336,40 @@ pro.getMaxGroup = function(group) {
     return targets;
 }
 
-//创建选举分组，分为警上组和投票组
-pro.createElectGroup = function() {
-    let elects = [];    //选举组 （警上组），会因退水变化
-    let votes = [];     //投票组 （警下组）
-    let waits = [];     //不能投票的组，初始等同上警组，不受退水影响
+// //确实选举结果
+// pro.setVoteResult =  function(votingGroup) {
+//     let targets = this.getMaxGroup(votingGroup);
+//     let resultId
+//     if (targets.length === 0) {
+//         resultId = -1;
+//     } else if (targets.length === 1) {
+//         let index = targets[0];
+//         let player = this.players[index-1];
+//         resultId = player.id;
+//     } else {  //两人以上平票
+//         resultId =  null;
+//         //重新设置要pk的竞选组(如果还需要pk的话，会使用到)
+//         for (let i in targets) {
+//             let index = targets[i];
+//             let player = this.players[index-1];
+//             player.isJoin = true;
+//         } 
+//     }
+    
+//     this.resultId = resultId;
+// }
 
-    for (let i in this.players) {
-        let player = this.players[i];
-        player.hasDone = false;     //清除发言结束标记
-        if (player.isJoin) {
-            elects.push(player.id);
-            waits.push(player.id);
-            player.isJoin = false;  //清除标记
-        } else {
-            votes.push(player.id);
+//获得指定Id组的下一个可用的Id(未发言)
+pro.findNextId = function(group,srcId,isAscent) {
+    isAscent = isAscent || this.isAscent;
+    let nextId = Utils.findNextId(group,srcId,isAscent);
+    if (nextId) {
+        let player = this.playersMap[nextId];
+        if (player.hasDone) {
+            nextId = null;
         }
     }
-
-    this.electsGroup = elects;
-    this.votingGroup = votes;
-    this.waitingGroup = waits;
-    console.log("============= 警上组：",elects);
-    console.log("============= 警下组：",votes);
-}
-
-//创建即将发言的组，排除已出局玩家
-pro.createIdGroup = function() {
-    let group = [];
-    for (let i in this.players) {
-        let player = this.players[i];
-        if (!player.isDead) {
-            group.push(player.id);
-        }
-    }
-    return group;
-}
-
-//查找下一个合格的发言者
-pro.findNextSpeaker = function(idGroup,srcId,isAscent) {
-    isAscent = isAscent || true;
-
-    let findId;
-    let len = idGroup.length;
-
-    if (!srcId) {   //没有初始位置，随机产生一个开始位置
-        let index = Utils.rand(len - 1);
-        findId = idGroup[index];
-    } else {
-        if (len <= 1) {
-            findId = null;
-        } else {
-            //找到srcId在群组中的位置
-            let index = null;
-            for (let i=0; i<len; ++i) {  
-                if (idGroup[i] === srcId) {
-                    index = i;
-                    break;
-                }
-            }
-
-            // 这里判断条件不能用（！index)，因为 ！0 = true;
-            if (index === null) {   //异常情况，正常不应该出现，一定是程序逻辑有什么地方有问题。
-                console.log('===================, cannot find the srcId !!!');
-                console.log(idGroup,index,srcId);
-                return null;
-            }
-
-            index += isAscent ? 1 : -1;
-            if (index < 0) {
-                index = len - 1;
-            } else if (index === len) {
-                index = 0;
-            }
-
-            let pId = idGroup[index];
-            let player = this.playersMap[pId];
-            findId = player.hasDone ? null : pId;
-        }
-    }
-
-    return findId;
-}
-
-//获得投票结果以及后续Step
-pro.getVoteResult =  function() {
-    let targets = this.getMaxGroup(this.votingGroup);
-    let resultId, nextStep;
-    nextStep = 'Result';
-    if (targets.length === 0) {
-        resultId = -1;
-        // nextStep = 'Result';
-    } else if (targets.length === 1) {
-        let index = targets[0] - 1;
-        let player = this.players[index];
-        resultId = player.id;
-        // nextStep = 'Result';
-    } else {  //两人以上平票
-        if (this.isElectAgain) {    //已经是第二轮投票
-            resultId =  -1;
-            this.isElectAgain = false;  //清除标记，后续发言阶段还会用到。
-            // nextStep = 'Result';
-        } else {
-            resultId = null;
-            this.isElectAgain = true;
-            console.log("=============== 平票 ",targets);
-            for (let i in targets) {
-                let index = targets[i];
-                let player = this.players[index-1];
-                player.isJoin = true;
-            }
-            this.createElectGroup();
-            nextStep = 'ElectB';
-        }
-    }
-
-    return {id:resultId,nextStep:nextStep};
+    return nextId;
 }
 
 //获得指定Step下，发送给客户端的消息。这里的消息都是房间消息。
@@ -476,34 +384,9 @@ pro.getStepMsg = function(stepName) {
             msg = {dayCount: this.dayCount};
         break;
 
-        case 'SpeechA':
-        case 'SpeechB':
-            msg = {playerId: this.currId, isOver: stepName==='SpeechB'};
-        break;
-
-        case 'ElectB':
-            msg = {elects:this.electsGroup};
-        break;        
-
-        case 'VotingB':
-            let tickets = {};   //每个投票者的票型
-            for (let i in this.votingGroup) {
-                let playerId = this.votingGroup[i];
-                let player = this.playersMap[playerId];
-                tickets[player.index] = player.target;
-            }
-            msg = {tickets:tickets};
-        break;
-
-        case 'Result':
-            let index;
-            if (this.resultId > 0) {
-                let player = this.playersMap[this.resultId];
-                index = player.index;
-            } 
-            msg = {index: index, isElectOver: this.isElectOver};
-
-        break;
+        case 'DeathNews':   //发布死讯
+            msg = {group: this.deadGroup};
+        break; 
     }
     
     return msg;
@@ -514,71 +397,43 @@ pro.getStepMsg = function(stepName) {
 pro.getNextStep = function(stepName) {
     let nextStep;
     switch (stepName) {
-        case 'Dawn':
-            this.deadGroup = this.getDeadGroup();
-            this.clearTarget(); //清除所有选择目标；
-            nextStep = this.isElectOver ? 'ShowDead' : 'ElectA'   
-        break;
-
         case 'NightA':
             this.getWolfKilled();
         break;
 
-        case 'ElectA':
-            this.createElectGroup();
-            let elects = this.electsGroup;
-            let count = elects.length;
-            if (count === 0) {
-                this.resultId = -1;
-                nextStep = 'Result';
-            } else if (count === 1) {
-                this.resultId = elects[0];
-                nextStep = 'Result';
-            } else {
-                nextStep = 'ElectB';
-            }
-        break;
-
-        case 'ElectB':
-            this.speechGroup = this.electsGroup;
-            this.currId = this.findNextSpeaker(this.speechGroup);
-            this.nextId = this.findNextSpeaker(this.speechGroup,this.currId);
-            // nextStep = 'SpeechA';
-        break;
-
-        case 'SpeechB':
-            let player = this.playersMap[this.currId];
-            player.hasDone = true;
-            if (this.isElectBreak) {        //竞选警长阶段，弃权后只有一个候选人
-                nextStep = 'Result'
-            } else if (this.nextId === null) {    //发言结束，要跳出循环，视情况跳到不同的入口。
-                if (this.isElectOver || this.isElectAgain) {
-                    nextStep = 'VotingA';   //投票阶段
-                } else {
-                    nextStep = 'ElectC';    //退水阶段
-                }
-            } else {
-                //发言准备阶段，在发言前就必须准备好下一个发言的id; （防中途下一个发言者放弃退选）
-                this.currId = this.nextId;
-                this.nextId = this.findNextSpeaker(this.speechGroup,this.currId);
-                nextStep = 'SpeechA';
-            }
-        break;
-
-        case 'VotingB':
-            let result = this.getVoteResult();
-            this.resultId = result.id;
-            nextStep = result.nextStep;
-        break;
-
-        case 'Result':
-            if (!this.isElectOver) {
+        case 'Dawn':
+            this.deadGroup = this.getDeadGroup();
+            this.clearTarget();
+            if (this.dayCount > 2 && !this.isElectOver) {
                 this.isElectOver = true;
-                this.sheriffId = this.resultId;
             }
-            nextStep = 'Pause';
+            nextStep = this.isElectOver ? 'DeathNews' : 'EventElect'; 
+        break;
+
+        case 'EventElect':
+            nextStep = 'DeathNews';
+        break;
+
+        case 'DeathNews':   //夜间的死讯
+            if (this.dayCount === 1) {
+                for (let i in this.deadGroup) {
+                    let index = this.deadGroup[i];
+                    let player = this.players[index-1];
+                    player.hasLastWords = true;
+                }
+            }
+            nextStep = 'EventDeath';
+        break;
+        
+        case 'EventDeath':
+            nextStep = 'EventDay';
+        break;
+
+        case 'EventDay':
+            nextStep = 'Dark';
         break;
     }
 
+    this.preStep = stepName;
     return nextStep;
 }

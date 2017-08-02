@@ -13,7 +13,7 @@ Inherits(Witch,Actor);
 let pro = Witch.prototype;
 pro.getActMsg = function(stepName) {
     let msg = {};
-    if (stepName === this.skillStep) {
+    if (stepName === this.skillStep && !this.isDead) {
         if ((!this.isAntidote) && (!this.isPoison)) {
             msg.isActStep = false;
         } else if (!this.isAntidote) {
@@ -26,6 +26,8 @@ pro.getActMsg = function(stepName) {
             msg.isPoison = this.isPoison;
             msg.killIndex = this.pGame.killIndex;            
         }
+    } else {
+        msg.isActStep = false;
     }
 }
 
@@ -38,6 +40,7 @@ pro.setSkillEffect = function(msg) {
         let target = msg.target;
         let player = this.pGame.players[target-1];
         player.isPoison = true;
+        player.hasDeathSkill = false; //比如猎人被毒死，失去死亡技能。
     }
 }
 

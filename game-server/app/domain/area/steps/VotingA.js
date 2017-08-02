@@ -4,6 +4,7 @@ const Inherits = require ('../inherits');
 
 function VotingA(param) {
     Step.call(this,param);
+    this.playersMap = this.pGame.playersMap;
 }
 
 module.exports = VotingA;
@@ -12,19 +13,19 @@ Inherits(VotingA,Step);
 let pro = VotingA.prototype;
 
 pro.begin = function() {
-    let group = this.pGame.votingGroup;
+    let group = this.pSuper.votingGroup;
     for (let i in group) {
         let playerId = group[i];
-        let player = this.pGame.playersMap[playerId];
-        let msg = {group:this.pGame.electsGroup, delay: this.delay};
+        let player = this.playersMap[playerId];
+        let msg = {group:this.pSuper.electsGroup, delay: this.delay};
         
         player.sendMsg(this.route,msg);
     }
 
-    group = this.pGame.waitingGroup; 
+    group = this.pSuper.waitingGroup; 
     for (let i in group) {
         let playerId = group[i];
-        let player = this.pGame.playersMap[playerId];
+        let player = this.playersMap[playerId];
         let msg = {isWaiting: true, delay: this.delay};
         
         player.sendMsg(this.route,msg);
