@@ -56,10 +56,10 @@ pro.getNextStep = function(stepName) {
                 this.resultId = this.electsGroup[0];
                 nextStep = 'Sheriff';
             } else {
-                this.speechGroup = this.electsGroup;               
+                // this.speechGroup = this.electsGroup;
                 this.currId = this.findNextId();
                 this.nextId = this.findNextId(this.currId);
-                this.isAscent = true;
+                this.isDescent = false;
                 nextStep = 'EventFight';
             }
         break;
@@ -107,7 +107,7 @@ pro.createElectGroup = function() {
     this.votingGroup = votes;
     this.waitingGroup = waits;
 
-    this.speechGroup = elects;
+    // this.speechGroup = elects;
     console.log('====== 警上 =====',this.electsGroup);
     console.log('====== 警下 =====',this.votingGroup);
     console.log('====== 发呆 =====',this.waitingGroup);
@@ -125,5 +125,5 @@ pro.onElectAbstain = function(playerId) {
 
 //找到下一个可用的id,竞选时期都是自动顺序。
 pro.findNextId = function(srcId) {
-    return this.pGame.findNextId(this.electsGroup,srcId,true);
+    return this.pGame.findNextId(this.electsGroup,srcId,false);
 }

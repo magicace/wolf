@@ -16,7 +16,7 @@ pro.begin = function() {
     this.isElectOver = this.pGame.isElectOver;
     this.isElectAgain = false;
 
-    this.speechGroup = this.pSuper.speechGroup;
+    // this.speechGroup = this.pSuper.speechGroup;
     this.electsGroup = this.pSuper.electsGroup;
     this.votingGroup = this.pSuper.votingGroup;
     this.waitingGroup = this.pSuper.waitingGroup;
@@ -24,15 +24,24 @@ pro.begin = function() {
     this.currId = this.pSuper.currId;
     this.nextId = this.pSuper.nextId;
     this.isDescent = this.pSuper.isDescent;
-    
-    this.startEvent('EventSpeech');
+
+    this.clearSpeech();
+    this.startEvent('SpeechA');
 }
 
 pro.getStepMsg = function(stepName) {
     let msg = {};
 
     switch (stepName) {
-        case 'ElectB':  //PK，客户端显示举手
+        case 'SpeechA':
+            msg = {playerId: this.currId, isOver: false};
+            break;
+
+        case 'SpeechB':
+            msg = {playerId: this.currId, isOver: true};
+            break;
+
+        case 'ElectB':  //平票PK，客户端显示举手
             msg = {elects:this.electsGroup};
         break;
 
@@ -53,20 +62,31 @@ pro.getStepMsg = function(stepName) {
 pro.getNextStep = function(stepName) {
     let nextStep;
 
-    switch(stepName) {       
-        case 'EventSpeech':
+    switch(stepName) {
+        case 'SpeechB':
+            let player = this.playersMap[this.currId];
+            player.hasDone = true;
+
             if (this.isBreakElect) {
                 this.stopEvent();
-            } else {
+            }
+            else if (this.nextId !== null) {
+                this.currId = this.nextId;
+                this.nextId = this.findNextId(this.currId);
+                console.log("==================4=electsgroup:",this.electsGroup,this.currId,this.nextId);
+                nextStep = 'SpeechA';
+            }
+            else {
                 nextStep = (this.isElectOver || this.isElectAgain) ? 'VotingA' : 'ElectC';
             }
-        break;
+            break;
 
-        case 'ElectB':
+        case 'ElectB':      //平票pk,准备下一轮演讲的id;
             this.currId = this.findNextId();
             this.nextId = this.findNextId(this.currId);
-             nextStep = 'EventSpeech';
-        break;
+            this.clearSpeech();
+            nextStep = 'SpeechA';
+            break;
 
         case 'ElectC':
             if (this.isBreakElect) {
@@ -75,7 +95,7 @@ pro.getNextStep = function(stepName) {
                 nextStep = 'VotingA';
             }
 
-        break;
+            break;
 
         case 'VotingB':
             this.resultId = this.getVoteResult();
@@ -93,16 +113,16 @@ pro.getNextStep = function(stepName) {
                 nextStep = null;
                 this.stopEvent();
             }             
-        break;
+            break;
     }
 
     return nextStep;
 }
 
 
-//找到下一个可用的id,竞选/Pk时期都是自动顺序。
+//找到下一个可用的id。
 pro.findNextId = function(srcId) {
-    return this.pGame.findNextId(this.electsGroup,srcId,false);
+    return this.pGame.findNextId(this.electsGroup,srcId,this.isDescent);
 }
 
 //客户端退水消息，只有竞选过程会被call
@@ -112,30 +132,25 @@ pro.onElectAbstain = function(playerId) {
     if (playerId === this.nextId) {     //处理下一个发言者退出竞选的情况，
         this.nextId = this.findNextId(this.nextId);
     }
-    console.log("==1=electsgroup:",this.electsGroup,this.currId,this.nextId,playerId);
+
     player.isJoin = false;
     this.pGame.sendRoomMsg('onElectAbstain',{playerId:playerId});
     Utils.removeFromArray(this.electsGroup,playerId);
 
-    console.log("==2=electsgroup:",this.electsGroup,this.currId,this.nextId,playerId);
     if (this.electsGroup.length === 1) {
         let curStep = this.controller.curStep;
-        if (curStep.name === 'EventSpeech') {
-            this.pGame.resultId = this.electsGroup[0];
-            this.isBreakElect = true;
-            curStep.onStopSpeech();
-        } else if (curStep.name === 'ElectC') {
+        if (curStep.name === 'SpeechA' || curStep.name === 'ElectC') {
             this.pGame.resultId = this.electsGroup[0];
             this.isBreakElect = true;
             this.controller.skip();
-        } 
-    } 
+        }
+    }
 }
 
 //获取选举结果
 pro.getVoteResult =  function(votingGroup) {
     let targets = this.pGame.getMaxGroup(this.votingGroup);
-    let resultId
+    let resultId;
     if (targets.length === 0) {
         resultId = -1;
     } else if (targets.length === 1) {
@@ -185,9 +200,17 @@ pro.createElectGroup = function() {
     this.electsGroup = elects;
     this.votingGroup = votes;
     this.waitingGroup = waits;
-    this.speechGroup = elects;
+    // this.speechGroup = elects;
 
     console.log('====== 警上 =====',this.electsGroup);
     console.log('====== 警下 =====',this.votingGroup);
     console.log('====== 发呆 =====',this.waitingGroup);
+}
+
+//清除已经发言的标识
+pro.clearSpeech = function() {
+    for (let i in this.players) {
+        let player = this.players[i];
+        player.hasDone = false;
+    }
 }
