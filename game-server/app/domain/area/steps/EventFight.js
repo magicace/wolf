@@ -23,7 +23,7 @@ pro.begin = function() {
 
     this.currId = this.pSuper.currId;
     this.nextId = this.pSuper.nextId;
-    this.isAscent = this.pSuper.isAscent;
+    this.isDescent = this.pSuper.isDescent;
     
     this.startEvent('EventSpeech');
 }
@@ -65,12 +65,16 @@ pro.getNextStep = function(stepName) {
         case 'ElectB':
             this.currId = this.findNextId();
             this.nextId = this.findNextId(this.currId);
-            this.isAscent = true;
-            nextStep = 'EventSpeech';
+             nextStep = 'EventSpeech';
         break;
 
         case 'ElectC':
-            nextStep = 'VotingA';
+            if (this.isBreakElect) {
+                this.stopEvent();
+            } else {
+                nextStep = 'VotingA';
+            }
+
         break;
 
         case 'VotingB':
@@ -86,6 +90,7 @@ pro.getNextStep = function(stepName) {
                 }
             } else {
                 this.pGame.resultId = this.resultId;
+                nextStep = null;
                 this.stopEvent();
             }             
         break;
@@ -97,7 +102,7 @@ pro.getNextStep = function(stepName) {
 
 //找到下一个可用的id,竞选/Pk时期都是自动顺序。
 pro.findNextId = function(srcId) {
-    return this.pGame.findNextId(this.electsGroup,srcId,true);
+    return this.pGame.findNextId(this.electsGroup,srcId,false);
 }
 
 //客户端退水消息，只有竞选过程会被call
@@ -107,12 +112,12 @@ pro.onElectAbstain = function(playerId) {
     if (playerId === this.nextId) {     //处理下一个发言者退出竞选的情况，
         this.nextId = this.findNextId(this.nextId);
     }
-
+    console.log("==1=electsgroup:",this.electsGroup,this.currId,this.nextId,playerId);
     player.isJoin = false;
     this.pGame.sendRoomMsg('onElectAbstain',{playerId:playerId});
     Utils.removeFromArray(this.electsGroup,playerId);
 
-    
+    console.log("==2=electsgroup:",this.electsGroup,this.currId,this.nextId,playerId);
     if (this.electsGroup.length === 1) {
         let curStep = this.controller.curStep;
         if (curStep.name === 'EventSpeech') {
@@ -121,7 +126,8 @@ pro.onElectAbstain = function(playerId) {
             curStep.onStopSpeech();
         } else if (curStep.name === 'ElectC') {
             this.pGame.resultId = this.electsGroup[0];
-            this.stopEvent();
+            this.isBreakElect = true;
+            this.controller.skip();
         } 
     } 
 }
@@ -143,7 +149,7 @@ pro.getVoteResult =  function(votingGroup) {
             let index = targets[i];
             let player = this.players[index-1];
             player.isJoin = true;
-        } 
+        }
     }
     
     return resultId;
@@ -165,18 +171,23 @@ pro.createElectGroup = function() {
             player.isJoin = false;  //清除标记
         } else {
             //竞选已结束，白天的投票过程，已出局玩家无权投票。
-            //竞选过程中，夜里死亡玩家isDead = true，但是没宣布时候不算死亡，还可以投票。
-            //也可以在第一个天亮的时候把他们先归入一个濒死组，不过这是另外一种麻烦。
-            if (this.isElectOver && player.isDead) {
+            //夜里死亡玩家isDying = true，但是isDead = false。
+            //  if (this.isElectOver && player.isDead) {
+            if (player.isDead) {
                 waits.push(id);
             } else {
                 votes.push(id);
             }
         }
+        player.hasDone = false;     //清除发言完成标识
     }
 
     this.electsGroup = elects;
     this.votingGroup = votes;
     this.waitingGroup = waits;
     this.speechGroup = elects;
+
+    console.log('====== 警上 =====',this.electsGroup);
+    console.log('====== 警下 =====',this.votingGroup);
+    console.log('====== 发呆 =====',this.waitingGroup);
 }

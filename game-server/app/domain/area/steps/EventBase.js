@@ -25,11 +25,10 @@ pro.startEvent = function(stepName) {
 }
 
 //停止事件。
-pro.stopEvent = function(stepName) {
+pro.stopEvent = function() {
     this.controller = null;
     //上级控制器的resume，会将系统当前控制器恢复成上级控制器。
-    //stepName为本事件停止后的后续步骤，如果为空，使用haltStep。
-    return this.pSuper.controller.resume(stepName);
+    return this.pSuper.controller.resume();
 }
 
 

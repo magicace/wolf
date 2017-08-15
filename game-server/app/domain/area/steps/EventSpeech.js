@@ -15,7 +15,7 @@ pro.begin = function() {
     this.speechGroup = this.pSuper.speechGroup;
     this.currId = this.pSuper.currId;
     this.nextId = this.pSuper.nextId;
-    this.isAscent = this.pSuper.isAscent;
+    this.isDescent = this.pSuper.isDescent;
     this.clearSpeech();
     this.startEvent('SpeechA');
 }
@@ -65,9 +65,9 @@ pro.onStopSpeech = function() {
     //正常情况下，能进入这个地方，nextId一定是null。安全起见,主动设置一下。
     this.nextId = null;
     //跳到SpeechB，是给客户端1秒时间，做关闭Mic动画。然后会结束整个事件。
-    this.controller.jumpTo('SpeechB');
+    this.controller.skip();
 }
 
 pro.findNextId = function(srcId) {
-    return this.pGame.findNextId(this.speechGroup,srcId,this.isAscent);
+    return this.pGame.findNextId(this.speechGroup,srcId,this.isDescent);
 }

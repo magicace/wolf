@@ -14,14 +14,16 @@ pro.setSkillEffect = function(msg) {
     let pGame = this.pGame;
     if (msg.target) {
         let player = pGame.players[msg.target-1];
-        player.isDead = true;
-        pGame.noticeDeath(player.id,10);       //死亡原因10，代表被猎人带走，代码暂定。
-        // if (pGame.isLastWords) {                //在第一遗言阶段发动的技能
-        //     pGame.speechGroup.push(player.id);
-        //     pGame.nextId = pGame.findNextSpeaker(pGame.currId);
-        // } 
+        player.isDying = true;
+        pGame.noticeDeath(player.id,10);        //死亡原因10，代表被猎人带走，代码暂定。
 
-        pGame.deadGroup.push(player.index);
+        let deadGroup = pGame.curController.pEvent.deadGroup;
+        deadGroup.push(player.index);
+
+        // 如果被猎人带人的玩家允许有遗言：
+        if (pGame.dayCount === 1) {
+            player.hasLastWords = true;
+        }
     }
 
     return pGame.curController.skip();

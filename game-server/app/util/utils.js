@@ -160,19 +160,15 @@ utils.removeFromArray = function(array,value) {
 // }
 
 
-utils.findNextId = function(idGroup,srcId,isAscent) {
-    console.log('======================================= !!!');
-    console.log(idGroup,srcId,isAscent);
-    if (isAscent === undefined) {
-        isAscent = true;
-    }
-
+utils.findNextId = function(idGroup,srcId,isDescent) {
+    // console.log(idGroup,srcId,isDescent);
     let findId;
     let len = idGroup.length;
 
     if (!srcId) {   //没有初始位置，随机产生一个开始位置
         let index = this.rand(len - 1);
         findId = idGroup[index];
+        console.log("****************",index,findId);
     } else {
         if (len <= 1) {
             findId = null;
@@ -192,7 +188,7 @@ utils.findNextId = function(idGroup,srcId,isAscent) {
                 return null;
             }
 
-            index += isAscent ? 1 : -1;
+            index += isDescent ? -1 : 1;
             if (index < 0) {
                 index = len - 1;
             } else if (index === len) {

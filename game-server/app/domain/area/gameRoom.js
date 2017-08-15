@@ -19,19 +19,26 @@ let GameRoom = function(param) {
 
     this.players = [];
     this.wolves = [];
-    // this.roomGroup = [];    //用于组消息发送，全房间同时发送，消息不一定相同时。
+    // this.roomGroup = [];     //用于组消息发送，全房间同时发送，消息不一定相同时。
     this.dayCount = 0;
-    this.isAscent = true;       //默认发言顺序为升序。
+    this.isDescent = false;     //默认发言顺序为升序。
     this.playersMap = {};
     this.isElectOver = false;
 
     this.channelService = this.app.get('channelService');
     this.roomChannel = this.channelService.getChannel(ChannelUtil.getRoomChannelName(this.id),true);
     this.wolfChannel = this.channelService.getChannel(ChannelUtil.getWolfChannelName(this.id),true);
-;
+
+    //设计为可以多级事件嵌套的结构，每个event就是一个事件空间。每个事件空间初始化的时候会配合一个事件控制器controller用于事件调度。
+    //在controller中，通过每个Step的控制当前的Step以及后续Step
+    // 而GameRoom理解为一个顶级的事件空间，
+    // 下一级继承自eventBase的事件中，
+    //初始化的时候：this.pGame= this.pSuper.pGame.指向上一级的
+    //这样事件中可以嵌套事件，多重继承。当是它们的pGame总是指向这个顶级空间的pGame。
+    //这里的pGame就是这个类本身，所以this.pGame = this.
     this.pGame = this;
     let self = this;
-    setTimeout(()=>{    //GameRoom初始化完毕之后再启动控制器。
+    setTimeout(()=>{            //GameRoom初始化完毕之后再启动控制器。
         let attr = {pEvent: self, name: 'Main'};
         self.controller = new Controller(attr);
         self.controller.init('Start');
@@ -142,11 +149,12 @@ pro.onTargetSelected = function(playerId,msg,cb) {
     let player = this.playersMap[playerId];
     let curStepName = this.curController.curStep.name;
     if (curStepName === 'MoveBadge') {
-        let targetPlayer = this.players[targetPlayer];
-        if (!targetPlayer.isDead) {
+        let targetPlayer = this.players[msg.target-1];
+        if (!targetPlayer.isDead) { //这个判断貌似无必要
             targetPlayer.isSheriff = true;
             this.sheriffId = targetPlayer.id;
-            this.noticeSheriff(targetPlayer.id);
+            // this.sendRoomMsg('onBeSheriff', {playerId:targetPlayer.id});
+            // this.noticeSheriff(targetPlayer.id);
             this.curController.skip();
         }
     } else {
@@ -158,16 +166,7 @@ pro.onTargetSelected = function(playerId,msg,cb) {
 
 pro.onSheriffOrder = function(playerId,msg,cb) {
     if (playerId === this.sheriffId) {
-        // if (msg.isLeft) {
-        //     this.currId = this.findNextSpeaker(this.sheriffId,false);
-        //     this.nextId = this.findNextSpeaker(this.currId,false);
-        //     this.isAscent = false;
-        // }
-        // cb(Code.OK);
-        // // this.jumpTo('SpeechA');
-        // this.curController.jumpTo('SpeechA');
-
-        if (this.controller.curStep === 'EventDay') {
+        if (this.controller.curStep.name === 'EventDay') {
             this.controller.curStep.onSheriffOrder(msg);
             cb(Code.OK);
         }
@@ -202,7 +201,7 @@ pro.onElectAbstain = function(playerId,cb) {
 pro.onSkipSpeech = function(playerId,cb) {
     if (playerId === this.curController.pEvent.currId && this.curController.curStep.name === 'SpeechA') {
         cb(Code.OK);
-        this.curController.jumpTo('SpeechB');
+        this.curController.skip();
     } else {
         cb(Code.AREA.FA_ROOM_OUTOFTIME);
     }
@@ -212,9 +211,9 @@ pro.noticeDeath = function(playerId,reasonId) {
     this.sendRoomMsg('onPlayerDied',{playerId:playerId, reasonId: reasonId});
 }
 
-pro.noticeSheriff = function(playerId) {
-    this.sendRoomMsg('onBeSheriff', {playerId:playerId});
-}
+// pro.noticeSheriff = function(playerId) {
+//     this.sendRoomMsg('onBeSheriff', {playerId:playerId});
+// }
 
 /**
  * 提供给客户端房间所有玩家的简单资料，需要什么提供什么。
@@ -265,31 +264,31 @@ pro.getWolfKilled = function() {
 
 }
 
-//获得夜间死亡玩家组。
+//获得夜间死亡玩家组。 isDaying, 濒死状态。
 pro.getDeadGroup = function() {
     let group = [];
     for (let i in this.players) {
         let player = this.players[i];
-        if (player.isKilled) {
+        if (!player.isDead && player.isKilled) {
             if (player.isCure && player.isProtected) {
                 //奶穿了
-                player.isDead = true;
+                player.isDying = true;
                 group.push(player.index)
 
             } else if (player.isCure || player.isProtected) {
                 //女巫开药或者守卫守护了
-                player.isKilled = false;
-
             } else {
-                player.isDead = true;
+                player.isDying = true;
                 group.push(player.index);
             }
+
+            player.isKilled = false;    //去掉标记，这样前面判断时候不用!player.isDead也不会错。
         }
 
         if (player.isPoison) {
             //女巫开毒
-            if (!player.isDead) {  //防止同刀同毒
-                player.isDead = true;
+            if (!player.isDyding) {  //防止同刀同毒
+                player.isDyding = true;
                 group.push(player.index);
             }
         }
@@ -336,33 +335,10 @@ pro.getMaxGroup = function(group) {
     return targets;
 }
 
-// //确实选举结果
-// pro.setVoteResult =  function(votingGroup) {
-//     let targets = this.getMaxGroup(votingGroup);
-//     let resultId
-//     if (targets.length === 0) {
-//         resultId = -1;
-//     } else if (targets.length === 1) {
-//         let index = targets[0];
-//         let player = this.players[index-1];
-//         resultId = player.id;
-//     } else {  //两人以上平票
-//         resultId =  null;
-//         //重新设置要pk的竞选组(如果还需要pk的话，会使用到)
-//         for (let i in targets) {
-//             let index = targets[i];
-//             let player = this.players[index-1];
-//             player.isJoin = true;
-//         } 
-//     }
-    
-//     this.resultId = resultId;
-// }
-
 //获得指定Id组的下一个可用的Id(未发言)
-pro.findNextId = function(group,srcId,isAscent) {
-    isAscent = isAscent || this.isAscent;
-    let nextId = Utils.findNextId(group,srcId,isAscent);
+pro.findNextId = function(group,srcId,isDescent) {
+    isDescent = isDescent || this.isDescent;
+    let nextId = Utils.findNextId(group,srcId,isDescent);
     if (nextId) {
         let player = this.playersMap[nextId];
         if (player.hasDone) {
@@ -434,6 +410,6 @@ pro.getNextStep = function(stepName) {
         break;
     }
 
-    this.preStep = stepName;
+    // this.preStep = stepName;
     return nextStep;
 }

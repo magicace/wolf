@@ -17,7 +17,11 @@ pro.begin = function() {
     for (let i in group) {
         let playerId = group[i];
         let player = this.playersMap[playerId];
-        let msg = {group:this.pSuper.electsGroup, delay: this.delay};
+        let msg = {
+            isOver:this.pGame.isElectOver,
+            group:this.pSuper.electsGroup,
+            delay: this.delay
+        };
         
         player.sendMsg(this.route,msg);
     }

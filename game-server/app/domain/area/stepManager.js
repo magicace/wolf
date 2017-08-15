@@ -9,10 +9,9 @@ const GameStep = {
     VotingA:    {module: 'VotingA', delay: 20, next: 'VotingB'},//投票阶段，通用
     VotingB:    {delay: 10},                                    //显示票型阶段
 
-    ElectA:     {delay: 10},                        //玩家决定是否上警阶段,Sheriff
-    ElectB:     {delay: 1},                         //发言组举手, 也用于平票pk准备阶段。ShowPK
-    ShowPk:     {delay: 1},                         //发言组举手, 也用于平票pk准备阶段。
-    ElectC:     {delay: 10, },                      //退水阶段，GiveUp
+    ElectA:     {delay: 10},                        //玩家决定是否上警阶段
+    ElectB:     {delay: 1},                         //发言组举手, 也用于平票pk准备阶段。
+    ElectC:     {delay: 10, },                      //退水阶段。
 
     SpeechA:    {delay: 30, next: 'SpeechB'},       //发言阶段，通用
     SpeechB:    {delay: 1},                         //发言结束，通用，程序判断后续流程。
@@ -24,7 +23,6 @@ const GameStep = {
     LastSkill:  {module:'LastSkill', delay: 15},    //发动死亡技能
     MoveBadge:  {delay: 15},                        //移交警徽
     Order:      {delay: 10},                        //警长决定发言顺序
-
 
     EventSpeech:{module:'EventSpeech'},             //演讲事件
     EventFight: {module:'EventFight'},              //竞争事件，包括从演讲到投票以及平票pk的过程；

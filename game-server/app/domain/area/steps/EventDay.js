@@ -13,7 +13,7 @@ let pro = EventElect.prototype;
 
 pro.begin = function() {
     this.createRoundGroup();
-    this.isAscent = true;
+    this.isDescent = false;
 
     let startStep;
     if (this.pGame.sheriffId > 0) {  //有警长
@@ -34,12 +34,12 @@ pro.getStepMsg = function(stepName) {
 
     switch (stepName) {
         case 'Order':  //警长决定发言顺序
-            let leftId = this.findNextId(this.sheriffId,false);
-            let rightId = this.findNextId(this.sheriffId,true);
+            let leftId = this.findNextId(this.sheriffId,true);
+            let rightId = this.findNextId(this.sheriffId,false);
             //默认为警右发言，如果玩家没有选择就以此为准。先设置好默认状态：
             this.currId = rightId;      
-            this.nextId = this.findNextSpeaker(this.currId,true);
-            //发送消息等待警长选择：
+            this.nextId = this.findNextId(this.currId);
+            //发送消息等待警长选择;
             msg = {leftId: leftId, rightId: rightId};
         break;
 
@@ -49,7 +49,7 @@ pro.getStepMsg = function(stepName) {
                 let player = this.playersMap[this.resultId];
                 index = player.index;
             } 
-            msg = {index: index, isElectOver: true};
+            msg = {index: index};
         break;  
     }
 
@@ -112,20 +112,24 @@ pro.createRoundGroup = function() {
     this.waitingGroup = waits;
 
     this.speechGroup = this.electsGroup;    //设置发言组
+
+    console.log('====== 备选 =====',this.electsGroup);
+    console.log('====== 选举 =====',this.votingGroup);
+    console.log('====== 发呆 =====',this.waitingGroup);
 }
 
-pro.findNextId = function(srcId,isAscent) {
-    isAscent = isAscent || this.isAscent;
-    return this.pGame.findNextId(this.electsGroup,srcId,isAscent);
+pro.findNextId = function(srcId,isDescent) {
+    isDescent = isDescent || this.isDescent;
+    return this.pGame.findNextId(this.electsGroup,srcId,isDescent);
 }
 
 pro.onSheriffOrder = function(msg) {
-    if (this.controller.curStep === 'Order') {
+    if (this.controller.curStep.name === 'Order') {
         if (msg.isLeft) {
-            this.isAscent = false;
-            this.currId = this.findNextId(this.sheriffId,false);
-            this.nextId = this.findNextId(this.currId,false);
+            this.isDescent = true;
+            this.currId = this.findNextId(this.sheriffId,true);
+            this.nextId = this.findNextId(this.currId,true);
         }
-        this.controller.jumpTo('EventFight');
+        this.controller.skip();
     }
 }

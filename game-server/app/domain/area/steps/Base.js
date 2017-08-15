@@ -1,4 +1,4 @@
-//游戏步骤控制最基类，基类Step的基类
+//游戏步骤控制最基类，基类Step和EventBase的基类。
 //只有最基本的循环控制的内容，不包含消息处理。
 Base = function(param) {
     this.pSuper = param.pSuper;

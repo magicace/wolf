@@ -21,9 +21,9 @@ pro.begin = function() {
         this.isEvent = false;
     }
 
-    //如果有一个有效的step，开启这个事件控制。
-    //否则，由于并没有初始新的控制器，它只是一个普通的Step。
-    //主控制器会读取它的next开始后续步骤。
+    //如果有一个有效的Step（有后事要处理），开启事件控制。
+    //否则，由于并没有开启新的控制器，将isEvent设置为false。
+    //这样它将表现为普通Step,控制器会读取它的next开始后续步骤。
 }
 
 pro.getValidStep = function() { //从后续死者组中找到第一个有效的step
@@ -33,7 +33,6 @@ pro.getValidStep = function() { //从后续死者组中找到第一个有效的s
         if (!player) {          //死者组已经没有任何玩家。
             break;
         }
-
         step = this.getPlayerStep();
     } while (!step);
     return step;
@@ -45,8 +44,9 @@ pro.getPlayer = function(index){
     if (index < this.deadGroup.length) {
         let playerIndex = this.deadGroup[index];
         player = this.players[playerIndex-1];
-        this.currId = player.id;
+        player.isDead = true;  //彻底死亡状态，后续此玩家就出局了。
         this.player = player;
+        this.currId = player.id;
     }
     return player;
 }
@@ -65,36 +65,65 @@ pro.getStepMsg = function(stepName) {
     switch (stepName) {
         case 'SpeechA':
             msg = {playerId: this.currId, isOver: false};
-        break;
+            break;
 
         case 'SpeechB':
             msg = {playerId: this.currId, isOver: true};
-        break;
+            break;
+
+        case 'MoveBadge':
+            this.pGame.sheriffId = -1;
+            break;
+
+        case 'Sheriff':
+            let index;
+            if (this.pGame.sheriffId > 0) {
+                let player = this.playersMap[this.pGame.sheriffId];
+                index = player.index;
+            }
+            msg = {index: index};
+            break;
     }
     return msg;
 }
 
 pro.getNextStep = function(stepName) {
+    let nextStep;
+
     switch(stepName) {
+        case 'SpeechA':
+            nextStep = 'SpeechB';
+            break;
         case 'SpeechB':
             this.player.hasLastWords = false;       //遗言已经讲完。
-        break;
-
+            nextStep = this.getPlayerStep();
+            break;
         case 'LastSkill':
             this.player.hasDeathSkill = false;      //死亡技能已经用了。
-        break;
+            nextStep = this.getPlayerStep();
+            break;
 
         case 'MoveBadge':
             this.player.isSheriff = false;          //警徽已经移交或者撕毁。
-        break;
+            nextStep = 'Sheriff';                   //显示警徽移交情况。
+            break;
+
+        case 'Sheriff':
+            // nextStep = this.getPlayerStep();     //按当前设定，后续一定是null
+            nextStep = null;
+            break;
+
     }
 
-    let nextStep = this.getPlayerStep();
+
     if (!nextStep) {    //当前玩家没有后续步骤，找下一个玩家
         nextStep = this.getValidStep();
+        if (!nextStep) {    //所有玩家都没有后续步骤
+            return this.stopEvent();
+        }
     }
 
-    if (!nextStep) {    //所有玩家都没有后续步骤
-        this.stopEvent();
-    }
+
+
+    return nextStep;
 }

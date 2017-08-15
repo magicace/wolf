@@ -119,7 +119,7 @@ pro.onElectAbstain = function(playerId) {
     if (curStep.name === 'EventFight') {
         curStep.onElectAbstain(playerId);
     } else {
-        console.log("*******************************dhfdf GRTYrtyutyu");
+        console.log("*******************************!!!!!!!!!!");
     }
 }
 
